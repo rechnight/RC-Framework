@@ -1,6 +1,7 @@
 # 🧱 RCFramework Architecture Overview
 
-A lightweight **MVC-inspired architecture** for Unity, designed for modularity, scalability, and clean separation of responsibilities.  
+A lightweight **MVC-inspired architecture** for Unity, designed for modularity, scalability, and clean separation of responsibilities.
+
 RCFramework combines **dependency injection**, **event-driven systems**, and **scene-scoped management** for robust game projects.
 
 ---
