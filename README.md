@@ -54,33 +54,14 @@ RCFramework combines **dependency injection**, **event-driven systems**, and **s
 
 ## 🧭 Flow Summary
 
-1. **Bootstrapper**  
-   Initializes the architecture, registers all **Models**, **Systems**, **Utilities**, and **Controllers**,  
-   then ensures proper **cleanup** on scene unload or shutdown.
-
-2. **Architecture**  
-   Acts as the **central hub** — managing dependency injection, shared instance access,  
-   and lifecycle tracking for all registered components.
-
-3. **Controllers**  
-   Represent the **View layer**, reacting to player input or UI interactions.  
-   They **listen to events** and **dispatch Commands** to request changes in game state.
-
-4. **Commands**  
-   Encapsulate **state-changing logic**, using injected dependencies from Models, Systems, or Utilities.  
-   When executed, they **update data** and **emit new events** to notify the system.
-
-5. **Systems**  
-   Operate as the **logic layer**, listening to **EventBus** notifications.  
-   They coordinate multiple Models and apply game logic in response to events.
-
-6. **Utilities**  
-   Provide **shared, reusable services** (e.g., saving, analytics, localization)  
-   accessible to any layer without creating circular dependencies.
-
-7. **UnsubscribeHandlers**  
-   Handle **automatic event cleanup**, ensuring all listeners are safely released  
-   when objects, Systems, or scenes are destroyed.
+1. **Bootstrapper** initializes the architecture, registers Models, Systems, Utilities, and cleans them up on shutdown.  
+2. **Architecture** is the central hub — manages dependencies, injections, and the EventBus.  
+3. **Models** hold state and send events when data changes.  
+4. **Systems** contain business logic, react to events, and update Models.  
+5. **Controllers** handle user input and send **Commands** to request state changes and listen to **Events** to change the view.  
+6. **Commands** execute isolated operations, modifying **Models**, calling **Systems** or triggering **Events**.  
+7. **Utilities** offer reusable helpers like saving, loading, or network logic — accessible from all layers.  
+8. **Scoped Event Management** ensures all event subscriptions are automatically cleaned up on object disable or destroy.
 
 ---
 
