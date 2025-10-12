@@ -1,21 +1,34 @@
-# 🧱 RCFramework Architecture Overview
+# 🧱 Overview
 
-A lightweight **MVC-inspired architecture** for Unity, designed for modularity, scalability, and clean separation of responsibilities.
+RCFramework is a lightweight **MVC-inspired architecture** for Unity, designed for:
+- **Scalable projects:** Supports multiple scenes, persistent and scene-specific systems.
+- **Memory safety:** Scoped events and automatic unsubscriptions prevent leaks.
+- **Modular design:** Clear separation of Models, Systems, Utilities, Commands, and Events.
+- **Testability:** Uses dependency injection for all core components.
 
-RCFramework combines **dependency injection**, **event-driven systems**, and **scene-scoped management** for robust game projects.
+The framework allows developers to focus on **game logic** rather than boilerplate architecture.
+
+---
+
+## 🗂️ Core Principles
+- **Single source of truth:** All Models, Systems, and Utilities are registered in a central Architecture hub.
+- **Scoped events:** Event subscriptions are memory-safe and automatically cleaned up.
+- **Dependency injection:** [Inject] is used for Models, Systems, Utilities.
+- **Multi-scene aware:** Bootstrappers handle registration and cleanup per scene.
+- **Utilities:** Shared services like save/load managers, audio managers, network helpers.
 
 ---
 
 ## 🧩 Core Components
 
+### **Architecture**
+- The **central hub** connecting all framework layers.  
+- Handles **dependency injection**, **event dispatch**, and **instance resolution**.
+
 ### **Bootstrapper**
 - Registers **Models**, **Systems**, and **Utilities** at scene load.  
 - Tracks all elements for **automatic cleanup** on scene unload.  
 - Supports **global bootstrappers** that persist across scenes.
-
-### **Architecture**
-- The **central hub** connecting all framework layers.  
-- Handles **dependency injection**, **event dispatch**, and **instance resolution**.
 
 ### **Models**
 - Store and manage the **game state**.  
