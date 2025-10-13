@@ -12,15 +12,15 @@ namespace RCFramework.Tools
 
         private void OnDisable()
         {
-            ReturnToPool();
+            ((IPoolable<PoolableObject>)this).ReturnToPool();
         }
 
-        public void Initialize(Action<PoolableObject> returnAction)
+        void IPoolable<PoolableObject>.Initialize(Action<PoolableObject> returnAction)
         {
             _returnAction = returnAction;
         }
 
-        public void ReturnToPool()
+        void IPoolable<PoolableObject>.ReturnToPool()
         {
             _returnAction?.Invoke(this);
         }
