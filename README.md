@@ -81,7 +81,7 @@ The framework allows developers to focus on **game logic** rather than boilerpla
 
 ## 📖 Learn More
 
-Check out the tutorial series on building RCFramework step by step:
+Check out the tutorial series on building RC Framework step by step:
 
 ➡️ **[From Spaghetti to Symphony — Building a Clean Game Architecture in Unity](https://rabcat.hashnode.dev/from-spaghetti-to-symphony-building-a-clean-game-architecture-in-unity)**  
 (Tutorials on making games with the framework coming soon)
