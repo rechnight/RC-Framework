@@ -1,6 +1,6 @@
 # 🧱 Overview
 
-RCFramework is a lightweight **MVC-inspired architecture** for Unity, designed for:
+RC Framework is a lightweight **MVC-inspired architecture** for Unity, designed for:
 - **Scalable projects:** Supports multiple scenes, persistent and scene-specific systems.
 - **Memory safety:** Scoped events and automatic unsubscriptions prevent leaks.
 - **Modular design:** Clear separation of Models, Systems, Utilities, Commands, and Events.
