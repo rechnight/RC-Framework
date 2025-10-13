@@ -17,15 +17,18 @@ namespace RCFramework.Tools
 
         private LifecycleEvents() { } // Prevent accidental "new"
 
-        public static ILifecycleEvents GetOrCreate()
+        public static ILifecycleEvents GetOrCreate(Component component)
         {
             var existing = FindFirstObjectByType<LifecycleEvents>();
             if (existing != null)
+            {
+                existing.SetParent(component);
                 return existing;
+            }
 
-            var go = new GameObject(nameof(LifecycleEvents));
-            DontDestroyOnLoad(go);
-            return go.AddComponent<LifecycleEvents>();
+            return new GameObject(nameof(LifecycleEvents))
+                .SetParent(component)
+                .AddComponent<LifecycleEvents>();
         }
 
         private void Update() => UpdateEvent?.Raise();
@@ -35,4 +38,5 @@ namespace RCFramework.Tools
         private void OnApplicationPause(bool pause) => ApplicationPauseEvent?.Raise(pause);
         private void OnApplicationQuit() => ApplicationQuitEvent?.Raise();
     }
+
 }
