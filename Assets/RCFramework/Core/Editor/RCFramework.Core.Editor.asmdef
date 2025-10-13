@@ -1,0 +1,16 @@
+{
+    "name": "RCFramework.Core.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5bc8e6a9d8ba75244aac841975834f7f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
