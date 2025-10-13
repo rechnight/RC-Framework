@@ -1,0 +1,17 @@
+using UnityEngine;
+using RCFramework.Core;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : BootstrapperBase
+    {
+        #region Fields
+        #endregion
+
+        #region Initialization
+        protected override void Bootstrap() { }
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#

@@ -1,0 +1,22 @@
+using RCFramework.Core;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : SystemBase
+    {
+        #region Fields
+        #endregion
+
+        #region Initialization
+        protected override void Initialize() { }
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Event Handlers
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#

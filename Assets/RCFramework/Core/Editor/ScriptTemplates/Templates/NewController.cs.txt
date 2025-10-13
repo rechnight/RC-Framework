@@ -1,0 +1,22 @@
+using UnityEngine;
+using RCFramework.Core;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : ControllerBase
+    {
+        #region Fields
+        #endregion
+
+        #region Unity Lifecycle
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Event Handlers
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#

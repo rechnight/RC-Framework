@@ -1,0 +1,21 @@
+using UnityEngine;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : MonoBehaviour
+    {
+        #region Fields
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Unity Lifecycle
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#

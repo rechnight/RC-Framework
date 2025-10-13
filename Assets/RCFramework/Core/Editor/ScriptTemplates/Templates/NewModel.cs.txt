@@ -1,0 +1,22 @@
+using RCFramework.Core;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : ModelBase
+    {
+        #region Fields
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Initialization
+        protected override void Initialize() { }
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#

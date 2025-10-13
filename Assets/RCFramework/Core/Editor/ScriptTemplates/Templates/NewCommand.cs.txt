@@ -1,0 +1,19 @@
+using RCFramework.Core;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : CommandBase
+    {
+        #region Fields
+        #endregion
+
+        #region Constructors
+        #endregion
+
+        #region Execute
+        protected override void Execute() { }
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#

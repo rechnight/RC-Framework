@@ -1,0 +1,22 @@
+using UnityEngine;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : ScriptableObject
+    {
+        #region Fields
+        [SerializeField, TextArea] private string _description;
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Unity Lifecycle
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#
