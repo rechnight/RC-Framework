@@ -32,19 +32,19 @@ namespace RCFramework.Tools
             );
         }
 
-        public T Get()
+        T IPoolWrapper<T>.Get()
         {
             var obj = _objectPool.Get();
-            obj.Initialize(Release);
+            obj.Initialize(((IPoolWrapper<T>)this).Release);
             return obj;
         }
 
-        public void Release(T obj)
+        void IPoolWrapper<T>.Release(T obj)
         {
             _objectPool.Release(obj);
         }
 
-        public void Clear()
+        void IPoolWrapper<T>.Clear()
         {
             _objectPool.Clear();
         }
