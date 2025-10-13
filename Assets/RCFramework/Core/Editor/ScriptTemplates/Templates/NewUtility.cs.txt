@@ -1,4 +1,4 @@
-using RCFramework.Core
+using RCFramework.Core;
 
 #ROOTNAMESPACEBEGIN#
     public class #SCRIPTNAME# : IUtility
