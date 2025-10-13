@@ -1,0 +1,21 @@
+using RCFramework.Core
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : IUtility
+    {
+        #region Fields
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Initialization
+        #endregion
+
+        #region Public Methods
+        #endregion
+
+        #region Private Methods
+        #endregion
+    }
+#ROOTNAMESPACEEND#
