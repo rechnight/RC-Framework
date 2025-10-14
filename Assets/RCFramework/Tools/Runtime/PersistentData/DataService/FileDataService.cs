@@ -22,7 +22,7 @@ namespace RCFramework.Tools
             this._serializer = serializer;
         }
 
-        public void Save<T>(T data, string folderName) where T : ISaveable
+        void IDataService.Save<T>(T data, string folderName)
         {
             string slotPath = GetSlotPath(folderName);
 
@@ -37,7 +37,7 @@ namespace RCFramework.Tools
             File.WriteAllText(fileLocation, dataContent);
         }
 
-        public T Load<T>(string folderName) where T : ISaveable
+        T IDataService.Load<T>(string folderName)
         {
             string fileLocation = GetPathToFile(folderName, typeof(T).Name);
 
@@ -50,7 +50,7 @@ namespace RCFramework.Tools
             return _serializer.Deserialize<T>(fileContent);
         }
 
-        public void Delete<T>(string folderName)
+        void IDataService.Delete<T>(string folderName)
         {
             string fileLocation = GetPathToFile(folderName, typeof(T).Name);
             
@@ -60,7 +60,7 @@ namespace RCFramework.Tools
             }
         }
 
-        public void DeleteFolder(string folderName)
+        void IDataService.DeleteFolder(string folderName)
         {
             string slotPath = GetSlotPath(folderName);
 
@@ -70,7 +70,7 @@ namespace RCFramework.Tools
             }
         }
 
-        public void DeleteAll()
+        void IDataService.DeleteAll()
         {
             foreach (string dirPath in Directory.GetDirectories(_dataPath))
             {
@@ -78,12 +78,12 @@ namespace RCFramework.Tools
             }
         }
 
-        public IEnumerable<string> ListFolders()
+        IEnumerable<string> IDataService.ListFolders()
         {
             return Directory.GetDirectories(_dataPath).Select(Path.GetFileName);
         }
 
-        public IEnumerable<string> ListFolderData(string folderName)
+        IEnumerable<string> IDataService.ListFolderData(string folderName)
         {
             string slotPath = GetSlotPath(folderName);
 
