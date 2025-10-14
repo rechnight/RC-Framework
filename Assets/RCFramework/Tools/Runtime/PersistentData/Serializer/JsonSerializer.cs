@@ -7,12 +7,12 @@ namespace RCFramework.Tools
 {
     public class JsonSerializer : ISerializer
     {
-        public string Serialize<T>(T obj)
+        string ISerializer.Serialize<T>(T obj)
         {
             return JsonConvert.SerializeObject(obj);
         }
 
-        public T Deserialize<T>(string json)
+        T ISerializer.Deserialize<T>(string json)
         {
             return JsonConvert.DeserializeObject<T>(json);
         }
