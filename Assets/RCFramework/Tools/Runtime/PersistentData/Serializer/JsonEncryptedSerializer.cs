@@ -20,7 +20,7 @@ namespace RCFramework.Tools
             _key = !string.IsNullOrEmpty(keyString) ? keyString : LoadOrGeneratePersistentKey();
         }
 
-        public string Serialize<T>(T obj)
+        string ISerializer.Serialize<T>(T obj)
         {
             using var ms = new MemoryStream();
             using (var writer = new StreamWriter(ms))
@@ -35,7 +35,7 @@ namespace RCFramework.Tools
             }
         }
 
-        public T Deserialize<T>(string data)
+        T ISerializer.Deserialize<T>(string data)
         {
             byte[] bytes = Convert.FromBase64String(data);
             using var input = new MemoryStream(bytes);
