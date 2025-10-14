@@ -7,25 +7,9 @@ using System;
 
 namespace RCFramework.Tools
 {
-    public class UIManager : MonoBehaviour, IUIManager
+    public class UIManager : IUIManager
     {
         private readonly Dictionary<Type, IUIPanel> _panels = new();
-
-        private UIManager() { }
-
-        public static IUIManager GetOrCreate(Component component)
-        {
-            var existing = FindFirstObjectByType<UIManager>();
-            if (existing != null)
-            {
-                existing.SetParent(component);
-                return existing;
-            }
-
-            return new GameObject(nameof(UIManager))
-                .SetParent(component)
-                .AddComponent<UIManager>();
-        }
 
         void IUIManager.Register(IUIPanel panel)
         {
@@ -72,4 +56,5 @@ namespace RCFramework.Tools
             return default;
         }
     }
+
 }
