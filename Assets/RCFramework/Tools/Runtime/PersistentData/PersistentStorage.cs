@@ -1,11 +1,12 @@
 // --------------- Copyright (C) RC --------------- //
 // STRONG is what happens when you run out of weak! //
 
+using RCFramework.Core;
 using System.Collections.Generic;
 
 namespace RCFramework.Tools
 {
-    public class PersistentStorage : IPersistentStorage
+    public class PersistentStorage : IUtility
     {
         private readonly IDataService _dataService;
         private const string _defaultExtension = "sav";
@@ -16,37 +17,37 @@ namespace RCFramework.Tools
             _dataService = new FileDataService(serializer, _defaultExtension);
         }
 
-        void IPersistentStorage.Save<T>(T data, string folderName)
+        public void Save<T>(T data, string folderName) where T : ISaveable
         {
             _dataService.Save(data, folderName);
         }
 
-        T IPersistentStorage.Load<T>(string folderName)
+        public T Load<T>(string folderName) where T : ISaveable
         {
             return _dataService.Load<T>(folderName);
         }
 
-        void IPersistentStorage.Delete<T>(string folderName)
+        public void Delete<T>(string folderName) where T : ISaveable
         {
             _dataService.Delete<T>(folderName);
         }
 
-        void IPersistentStorage.DeleteFolder(string folderName)
+        public void DeleteFolder(string folderName)
         {
             _dataService.DeleteFolder(folderName);
         }
 
-        void IPersistentStorage.DeleteAll()
+        public void DeleteAll()
         {
             _dataService.DeleteAll();
         }
 
-        IEnumerable<string> IPersistentStorage.ListFolders()
+        public IEnumerable<string> ListFolders()
         {
             return _dataService.ListFolders();
         }
 
-        IEnumerable<string> IPersistentStorage.ListFolderData(string folderName)
+        public IEnumerable<string> ListFolderData(string folderName)
         {
             return _dataService.ListFolderData(folderName);
         }
