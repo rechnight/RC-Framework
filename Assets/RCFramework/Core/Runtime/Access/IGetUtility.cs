@@ -7,9 +7,10 @@ namespace RCFramework.Core
 
     public static class IGetUtilityExtensions
     {
-        public static T GetSystem<T>(this IGetUtility self) where T : IUtility
+        public static T GetUtility<T>(this IGetUtility self) where T : IUtility
         {
             return self.GetArchitecture().GetUtility<T>();
         }
     }
+
 }
