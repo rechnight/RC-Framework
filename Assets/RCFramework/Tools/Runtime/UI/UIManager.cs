@@ -4,14 +4,15 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using RCFramework.Core;
 
 namespace RCFramework.Tools
 {
-    public class UIManager : IUIManager
+    public class UIManager : MonoBehaviour, IUtility
     {
         private readonly Dictionary<Type, IUIPanel> _panels = new();
 
-        void IUIManager.Register(IUIPanel panel)
+        public void Register(IUIPanel panel)
         {
             var type = panel.GetType();
             if (!_panels.ContainsKey(type))
@@ -21,28 +22,28 @@ namespace RCFramework.Tools
             }
         }
 
-         void IUIManager.Unregister(IUIPanel panel)
+        public void Unregister(IUIPanel panel)
         {
             var type = panel.GetType();
             _panels.Remove(type);
         }
 
-        void IUIManager.OpenPanel<T>()
+        public void OpenPanel<T>() where T : IUIPanel
         {
             GetPanel<T>()?.Open();
         }
 
-        void IUIManager.ShowPanel<T>()
+        public void ShowPanel<T>() where T : UIPanel
         {
             GetPanel<T>()?.gameObject.SetActive(true);
         }
 
-        void IUIManager.ClosePanel<T>()
+        public void ClosePanel<T>() where T : IUIPanel
         {
             GetPanel<T>()?.Close();
         }
 
-        void IUIManager.HidePanel<T>()
+        public void HidePanel<T>() where T : UIPanel
         {
             GetPanel<T>()?.gameObject.SetActive(false);
         }
@@ -56,5 +57,4 @@ namespace RCFramework.Tools
             return default;
         }
     }
-
 }
