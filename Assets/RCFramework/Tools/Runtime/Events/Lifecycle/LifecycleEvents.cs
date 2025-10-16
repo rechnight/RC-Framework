@@ -2,10 +2,11 @@
 // STRONG is what happens when you run out of weak! //
 
 using UnityEngine;
+using RCFramework.Core;
 
 namespace RCFramework.Tools
 {
-    public class LifecycleEvents : MonoBehaviour, ILifecycleEvents
+    public class LifecycleEvents : MonoBehaviour, IUtility
     {
         public EventChannel UpdateEvent { get; } = new EventChannel();
         public EventChannel FixedUpdateEvent { get; } = new EventChannel();
@@ -14,9 +15,9 @@ namespace RCFramework.Tools
         public EventChannel<bool> ApplicationPauseEvent { get; } = new EventChannel<bool>();
         public EventChannel ApplicationQuitEvent { get; } = new EventChannel();
 
-        private LifecycleEvents() { } // Prevent accidental "new"
+        private LifecycleEvents() { }
 
-        public static ILifecycleEvents GetOrCreate(Component component)
+        public static LifecycleEvents GetOrCreate(Component component)
         {
             var existing = FindFirstObjectByType<LifecycleEvents>();
             if (existing != null)
@@ -37,6 +38,4 @@ namespace RCFramework.Tools
         private void OnApplicationPause(bool pause) => ApplicationPauseEvent?.Raise(pause);
         private void OnApplicationQuit() => ApplicationQuitEvent?.Raise();
     }
-
 }
-
