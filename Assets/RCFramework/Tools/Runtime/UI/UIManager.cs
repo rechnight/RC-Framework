@@ -8,7 +8,7 @@ using RCFramework.Core;
 
 namespace RCFramework.Tools
 {
-    public class UIManager : MonoBehaviour, IUtility
+    public class UIManager : IUtility
     {
         private readonly Dictionary<Type, IUIPanel> _panels = new();
 
@@ -58,3 +58,4 @@ namespace RCFramework.Tools
         }
     }
 }
+
