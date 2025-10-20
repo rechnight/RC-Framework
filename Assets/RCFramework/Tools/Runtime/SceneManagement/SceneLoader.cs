@@ -19,9 +19,9 @@ namespace RCFramework.Tools
         public EventChannel<SceneKey> SceneUnloaded = new();
         public EventChannel SceneGroupLoaded = new();
 
-        public TransitionBuilder CreateTransition() => new TransitionBuilder(this);
+        public SceneTransition CreateTransition() => new SceneTransition(this);
 
-        public async void Execute(TransitionBuilder builder)
+        public async void Execute(SceneTransition builder)
         {
             if (_isLoading)
                 return;
@@ -51,9 +51,9 @@ namespace RCFramework.Tools
                 await Awaitable.NextFrameAsync();
             }
 
-            if (builder.ActiveSceneName != null)
+            if (builder.ActiveSceneKey != null)
             {
-                Scene activeScene = SceneManager.GetSceneByName(builder.ActiveSceneName.SceneName);
+                Scene activeScene = SceneManager.GetSceneByName(builder.ActiveSceneKey.SceneName);
                 if (activeScene.IsValid() && activeScene.isLoaded)
                 {
                     SceneManager.SetActiveScene(activeScene);
